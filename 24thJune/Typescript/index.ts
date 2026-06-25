@@ -150,12 +150,12 @@ const accordionData: AccordionItem[] = [
   }
 ];
 
-function toggleAccordion(id: number): void {
-    console.log(accordionData[id]);
-    // console.log(accordionData[id].isOpen);
-    accordionData[id].isOpen = !accordionData[id].isOpen;
-}
+// function toggleAccordion(id: number): void {
+//     console.log(accordionData[id]);
+//     // console.log(accordionData[id].isOpen);
+//     accordionData[id].isOpen = !accordionData[id].isOpen;
+// }
 
-toggleAccordion(0);
+// toggleAccordion(0);
 
-console.log(accordionData[0].isOpen);
+// console.log(accordionData[0].isOpen);
