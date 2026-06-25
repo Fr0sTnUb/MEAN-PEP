@@ -1,0 +1,29 @@
+<section class="accordion-shell">
+    <div class="accordion-heading">
+        <p class="eyebrow">FAQ</p>
+        <h2>Accordion examples</h2>
+        <p class="subtext">Open one item at a time and scan the answers quickly.</p>
+    </div>
+
+    <div class="container">
+        @for(i of accordionData; track $index){
+            <article class="box" [class.open]="i.isOpen">
+                <button type="button" class="btn" (click)="toggleAccordion($index)" [attr.aria-expanded]="i.isOpen">
+                    <span class="question-index">0{{$index + 1}}</span>
+                    <span class="question-title">{{ i.title }}</span>
+                    <span class="chevron" [class.chevron-open]="i.isOpen">⌄</span>
+                </button>
+
+                @if(i.isOpen == true){
+                    <div class="answer-panel">
+                        <p>{{ i.content }}</p>
+                        <div class="answer-meta">
+                            <span class="dot"></span>
+                            <span>Basic accordion state</span>
+                        </div>
+                    </div>
+                }
+            </article>
+        }
+    </div>
+</section>
