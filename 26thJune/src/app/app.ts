@@ -9,4 +9,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class App {
   protected readonly title = signal('26thJune');
+  arr: number[] = [
+    1, 2, 3, 4, 5
+  ]
+
+  
 }
