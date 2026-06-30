@@ -1,5 +1,5 @@
-<input type = "text" class = "border-2" (input)="onInput($event)" />
-<button (click)="addTodo()" class="border-2 cursor-pointer">Add</button>
+<input type = "text" class = "border-2" (input)="onInput($event)" [value] = "todoText" />
+<button (click)="addTodo()" class="button">Add to the list</button>
 
 @for(item of todoArr(); track $index){
   <div>
@@ -8,6 +8,21 @@
     } @else {
       <p class="text-green-500">{{item.title}}</p>
     }
-  <button (click)="deleteTodo(item.id)" class="border-2 cursor-pointer">Delete</button>
+    <div class="flex items-center mb-4">
+        <input
+          [id]="'todo-checkbox-' + item.id"
+          type="checkbox"
+          class="w-4 h-4 border border-default-medium rounded-xs bg-neutral-secondary-medium focus:ring-2 focus:ring-brand-soft"
+          [checked]="item.completed"
+          (change)="item.completed = !item.completed"
+        >
+        <label
+          [for]="'todo-checkbox-' + item.id"
+          class="select-none ms-2 text-sm font-medium text-heading"
+        >
+          Completed
+        </label>
+    </div>
+  <button (click)="deleteTodo(item.id)" class="button">Delete</button>
   </div>
 }

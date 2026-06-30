@@ -10,7 +10,7 @@ interface Todo {
 
 @Component({
   selector: 'app-root',
-  imports: [FormsModule, RouterOutlet],
+  imports: [FormsModule],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
@@ -25,14 +25,16 @@ export class App {
       completed: false
     };
     this.todoArr.set([...this.todoArr(), obj]);
+    this.todoText = "";
   }
 
   onInput(event: Event): void {
-    const inputElement = event.target as HTMLInputElement;
-    this.todoText = inputElement.value;
+    this.todoText = (event.target as HTMLInputElement).value;
   }
 
   deleteTodo(id: number): void {
-    this.todoArr.set(this.todoArr().filter((todo: any) => todo.id !== id));
+    this.todoArr.set(this.todoArr().filter((todo: Todo) => todo.id !== id));
   }
+
 }
+
