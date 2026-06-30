@@ -1,0 +1,16 @@
+<div class="user-list-container">
+    @for(item of users; track item.id){
+        <div class="user-card">
+            <span class="user-id">#{{item.id}}</span>
+            <div class="user-avatar">{{ item.name.slice(0, 1) }}</div>
+            <div class="user-info">
+                <h3>{{item.name}}</h3>
+                <div class="user-email">{{item.email}}</div>
+                <div class="user-details">
+                    <span class="badge age-badge">{{item.age}} yrs</span>
+                    <span class="badge city-badge">{{item.city}}</span>
+                </div>
+            </div>
+        </div>
+    }
+</div>

@@ -24,6 +24,12 @@ export class App {
       title: this.todoText,
       completed: false
     };
+
+    if(this.todoText.trim() === ""){
+      alert("Please enter a todo item.");
+      return;
+    }
+    
     this.todoArr.set([...this.todoArr(), obj]);
     this.todoText = "";
   }
@@ -34,6 +40,10 @@ export class App {
 
   deleteTodo(id: number): void {
     this.todoArr.set(this.todoArr().filter((todo: Todo) => todo.id !== id));
+  }
+
+  updateTodo(id:number){
+    this.deleteTodo(id);
   }
 
 }
