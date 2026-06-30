@@ -1,0 +1,13 @@
+<input type = "text" class = "border-2" (input)="onInput($event)" />
+<button (click)="addTodo()" class="border-2 cursor-pointer">Add</button>
+
+@for(item of todoArr(); track $index){
+  <div>
+    @if(item.completed){
+      <p class = "line-through text-red-500">{{item.title}}</p>
+    } @else {
+      <p class="text-green-500">{{item.title}}</p>
+    }
+  <button (click)="deleteTodo(item.id)" class="border-2 cursor-pointer">Delete</button>
+  </div>
+}
